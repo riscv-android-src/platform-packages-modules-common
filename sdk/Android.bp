@@ -14,6 +14,7 @@
 
 package {
     default_visibility: [":__subpackages__"],
+    default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
 mainline_stubs_args =
@@ -148,6 +149,8 @@ java_defaults {
         ":__subpackages__",
         "//frameworks/base/apex:__subpackages__",
         "//frameworks/base/libs/hwui",
+        // TODO: remove after moving connectivity to packages/modules
+        "//frameworks/base/packages/Connectivity:__subpackages__",
         "//frameworks/base/wifi",
         "//packages/modules:__subpackages__",
         "//packages/providers/MediaProvider:__subpackages__",
