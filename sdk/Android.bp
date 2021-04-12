@@ -14,6 +14,7 @@
 
 package {
     default_visibility: [":__subpackages__"],
+    default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
 mainline_stubs_args =
@@ -125,16 +126,13 @@ java_defaults {
 
     // Collates API usages from each module for further analysis.
     plugins: ["java_api_finder"],
-
-    // Mainline modules should only rely on 'module_lib' APIs provided by other modules
-    // and the non updatable parts of the platform.
-    sdk_version: "module_current",
 }
 
 // Defaults for mainline module provided java_sdk_library instances.
 java_defaults {
     name: "framework-module-defaults",
     defaults: ["framework-module-common-defaults"],
+    sdk_version: "module_current",
 
     system: {
         enabled: true,
@@ -148,6 +146,8 @@ java_defaults {
         ":__subpackages__",
         "//frameworks/base/apex:__subpackages__",
         "//frameworks/base/libs/hwui",
+        // TODO: remove after moving connectivity to packages/modules
+        "//frameworks/base/packages/Connectivity:__subpackages__",
         "//frameworks/base/wifi",
         "//packages/modules:__subpackages__",
         "//packages/providers/MediaProvider:__subpackages__",
@@ -158,13 +158,15 @@ java_defaults {
 java_defaults {
     name: "framework-system-server-module-defaults",
     defaults: ["framework-module-common-defaults"],
+    sdk_version: "system_server_current",
 
     system_server: {
         enabled: true,
-        sdk_version: "module_current",
+        sdk_version: "system_server_current",
     },
     defaults_visibility: [
         ":__subpackages__",
+        "//art/libartservice:__subpackages__",
         "//frameworks/base/apex:__subpackages__",
         "//packages/modules:__subpackages__",
     ],
