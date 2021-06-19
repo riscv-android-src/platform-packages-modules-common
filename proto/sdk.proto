@@ -26,6 +26,7 @@ enum SdkModule {
   UNKNOWN = 0;
 
   // R modules
+  CONSCRYPT = 10;
   IPSEC = 1;
   MEDIA = 2;
   MEDIA_PROVIDER = 3;
@@ -36,6 +37,7 @@ enum SdkModule {
 
   // S modules
   ART = 8;
+  SCHEDULING = 9;
 }
 
 // A single extension version.
