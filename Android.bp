@@ -42,6 +42,16 @@ soong_config_module_type {
 }
 
 soong_config_module_type {
+    name: "module_android_app_set",
+    module_type: "android_app_set",
+    config_namespace: "ANDROID",
+    bool_variables: ["module_build_from_source"],
+    properties: [
+        "prefer",
+    ],
+}
+
+soong_config_module_type {
     name: "module_prebuilt_bootclasspath_fragment",
     module_type: "prebuilt_bootclasspath_fragment",
     config_namespace: "ANDROID",
@@ -97,5 +107,45 @@ soong_config_module_type {
     bool_variables: ["module_build_from_source"],
     properties: [
         "prefer",
+    ],
+}
+
+soong_config_module_type {
+    name: "module_java_library",
+    module_type: "java_library",
+    config_namespace: "ANDROID",
+    bool_variables: ["module_build_from_source"],
+    properties: [
+        "enabled",
+    ],
+}
+
+soong_config_module_type {
+    name: "module_apex",
+    module_type: "apex",
+    config_namespace: "ANDROID",
+    bool_variables: ["module_build_from_source"],
+    properties: [
+        "enabled",
+    ],
+}
+
+soong_config_module_type {
+    name: "module_apex_test",
+    module_type: "apex_test",
+    config_namespace: "ANDROID",
+    bool_variables: ["module_build_from_source"],
+    properties: [
+        "enabled",
+    ],
+}
+
+soong_config_module_type {
+    name: "module_override_apex",
+    module_type: "override_apex",
+    config_namespace: "ANDROID",
+    bool_variables: ["module_build_from_source"],
+    properties: [
+        "enabled",
     ],
 }
